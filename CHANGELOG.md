@@ -2,6 +2,6 @@
 
 * Uploaded package
 
-## [0.1.1] - 2024-09-24
+## [0.0.2] - 2024-09-24
 ### Added
 - Added license, better decription.
