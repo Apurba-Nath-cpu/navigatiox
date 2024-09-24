@@ -1,3 +1,7 @@
-## 0.0.1
+## 0.0.1 - 2024-09-24
 
-* TODO: Describe initial release.
+* Uploaded package
+
+## [0.1.1] - 2024-09-24
+### Added
+- Added license, better decription.
