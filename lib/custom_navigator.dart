@@ -12,7 +12,7 @@ import 'package:navigatiox/utils/corner_type.dart';
 /// This class is used to encapsulate the logic for pushing pages with various transition animations,
 /// making it easier to apply consistent transitions throughout the application.
 class CustomNavigator {
-/// Pushes a new page onto the navigation stack with a swirl transition animation.
+  /// Pushes a new page onto the navigation stack with a swirl transition animation.
   ///
   /// The [nextPage] parameter is the widget that will be displayed on the new page.
   /// The [duration] parameter specifies the duration of the animation, with a default of 500 milliseconds.
@@ -21,7 +21,7 @@ class CustomNavigator {
   /// The [axis] parameter specifies the axis along which the swirl animation should occur, with a default of `Axis.vertical`.
   ///
   /// This method uses the [SwirlPageRoute] class to create the custom transition animation.
-    static void pushSwirl({
+  static void pushSwirl({
     required BuildContext context,
     required Widget nextPage,
     Duration duration = const Duration(milliseconds: 500),
@@ -42,14 +42,14 @@ class CustomNavigator {
     );
   }
 
-/// Pushes a new page onto the navigation stack with a slide transition animation.
+  /// Pushes a new page onto the navigation stack with a slide transition animation.
   ///
   /// The [nextPage] parameter is the widget that will be displayed on the new page.
   /// The [direction] parameter specifies the direction of the slide animation, with a default of `AxisDirection.left`.
   /// The [duration] parameter specifies the duration of the animation, with a default of 500 milliseconds.
   ///
   /// This method uses the [SlidePageRoute] class to create the custom transition animation.
-    static void pushSlide({
+  static void pushSlide({
     required BuildContext context,
     required Widget nextPage,
     AxisDirection direction = AxisDirection.left,
@@ -65,14 +65,14 @@ class CustomNavigator {
     );
   }
 
-/// Pushes a new page onto the navigation stack with a fade and scale transition animation.
+  /// Pushes a new page onto the navigation stack with a fade and scale transition animation.
   ///
   /// The [nextPage] parameter is the widget that will be displayed on the new page.
   /// The [duration] parameter specifies the duration of the animation, with a default of 500 milliseconds.
   /// The [initialScale] parameter specifies the initial scale of the page being pushed, with a default of 0.0.
   ///
   /// This method uses the [FadeScalePageRoute] class to create the custom transition animation.
-    static void pushFadeScale({
+  static void pushFadeScale({
     required BuildContext context,
     required Widget nextPage,
     Duration duration = const Duration(milliseconds: 500),

@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 /// A custom PageRoute that implements a flip transition animation.
-/// 
+///
 /// This PageRoute is used to transition between pages in a Flutter application,
 /// with a flip animation effect. The animation can be configured to flip
 /// horizontally or vertically, and to fade in the new page.
@@ -38,27 +38,26 @@ class FlipPageRoute extends PageRouteBuilder {
               animation: animation,
               child: nextPage,
               builder: (context, child) {
-                final double angle =
-                    ((1.0 - animation.value) * (pi / 2));
+                final double angle = ((1.0 - animation.value) * (pi / 2));
                 final double opacity = animation.value;
                 bool adjustedForward = forward;
                 if (axis == AxisDirection.right || axis == AxisDirection.up) {
                   adjustedForward = !forward;
                 }
-                
+
                 final int direction = adjustedForward ? 1 : -1;
                 Matrix4 transform = Matrix4.identity()
-                  ..setEntry(3, 2, 0.001) 
+                  ..setEntry(3, 2, 0.001)
                   ..rotateY(direction * angle);
 
                 if (axis == AxisDirection.up || axis == AxisDirection.down) {
                   transform = Matrix4.identity()
-                    ..setEntry(3, 2, 0.001) 
+                    ..setEntry(3, 2, 0.001)
                     ..rotateX(direction * angle);
                 }
 
                 return Transform(
-                  transform: transform, 
+                  transform: transform,
                   alignment: (axis == AxisDirection.left)
                       ? Alignment.centerLeft
                       : (axis == AxisDirection.right)

@@ -2,7 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 /// A [PageRouteBuilder] that provides a "fly in" transition animation for page navigation.
-/// 
+///
 /// The [FlyInPageRoute] class is used to create a page route that transitions the next page
 /// into view with a "fly in" animation. The animation can be configured to use different
 /// axis directions and inclinations, as well as whether to fade in the next page.
@@ -30,8 +30,7 @@ class FlyInPageRoute extends PageRouteBuilder {
               animation: animation,
               child: nextPage,
               builder: (context, child) {
-                final double angle =
-                    ((1.0 - animation.value) * (pi / 2));
+                final double angle = ((1.0 - animation.value) * (pi / 2));
                 final double opacity = animation.value;
                 bool adjustedForward = forward;
                 if (axis == AxisDirection.left || axis == AxisDirection.down) {
@@ -64,24 +63,28 @@ class FlyInPageRoute extends PageRouteBuilder {
                     alignmentAxis = AlignmentGeometry.lerp(
                         Alignment.topRight, Alignment.topLeft, animation.value);
                   } else {
-                    alignmentAxis = AlignmentGeometry.lerp(Alignment.bottomRight,
-                        Alignment.bottomLeft, animation.value);
+                    alignmentAxis = AlignmentGeometry.lerp(
+                        Alignment.bottomRight,
+                        Alignment.bottomLeft,
+                        animation.value);
                   }
                 } else if (axis == AxisDirection.up) {
                   if (inclination == AxisDirection.left) {
                     alignmentAxis = AlignmentGeometry.lerp(
                         Alignment.topRight, Alignment.topLeft, animation.value);
                   } else {
-                      alignmentAxis = AlignmentGeometry.lerp(Alignment.topLeft,
-                        Alignment.topRight, animation.value);
+                    alignmentAxis = AlignmentGeometry.lerp(
+                        Alignment.topLeft, Alignment.topRight, animation.value);
                   }
                 } else {
                   if (inclination == AxisDirection.left) {
-                    alignmentAxis = AlignmentGeometry.lerp(Alignment.bottomRight,
-                      Alignment.bottomLeft, animation.value);
+                    alignmentAxis = AlignmentGeometry.lerp(
+                        Alignment.bottomRight,
+                        Alignment.bottomLeft,
+                        animation.value);
                   } else {
-                      alignmentAxis = AlignmentGeometry.lerp(
-                        Alignment.bottomLeft, Alignment.bottomRight, animation.value);
+                    alignmentAxis = AlignmentGeometry.lerp(Alignment.bottomLeft,
+                        Alignment.bottomRight, animation.value);
                   }
                 }
 

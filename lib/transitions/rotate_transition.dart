@@ -15,15 +15,15 @@ import 'package:flutter/material.dart';
 class RotatePageRoute extends PageRouteBuilder {
   final Widget nextPage;
   final Widget currentPage;
-  final int numberOfTurns; 
-  final bool clockwise; 
+  final int numberOfTurns;
+  final bool clockwise;
   final Duration animationDuration = const Duration(milliseconds: 500);
 
   RotatePageRoute({
     required this.nextPage,
     required this.currentPage,
-    this.numberOfTurns = 1, 
-    this.clockwise = true,  
+    this.numberOfTurns = 1,
+    this.clockwise = true,
     animationDuration = const Duration(milliseconds: 500),
   }) : super(
           pageBuilder: (context, animation, secondaryAnimation) => nextPage,
@@ -32,7 +32,7 @@ class RotatePageRoute extends PageRouteBuilder {
 
             return RotationTransition(
               turns: Tween<double>(
-                begin: numberOfTurns.toDouble() * rotationFactor, 
+                begin: numberOfTurns.toDouble() * rotationFactor,
                 end: 0.0,
               ).animate(animation),
               child: animation.value.abs() > 0.5 ? child : currentPage,
