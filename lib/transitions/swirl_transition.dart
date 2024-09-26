@@ -17,7 +17,7 @@ import 'package:flutter/material.dart';
 class SwirlPageRoute extends PageRouteBuilder {
   final Widget nextPage;
   final Widget currentPage;
-  final int numHalfRotations;
+  final int numberOfHalfRotations;
   final bool forward;
   final Duration animationDuration;
   final Axis axis;
@@ -25,7 +25,7 @@ class SwirlPageRoute extends PageRouteBuilder {
   SwirlPageRoute(
       {required this.nextPage,
       required this.currentPage,
-      this.numHalfRotations = 1,
+      this.numberOfHalfRotations = 1,
       this.forward = true,
       this.axis = Axis.vertical,
       this.animationDuration = const Duration(milliseconds: 500)})
@@ -38,7 +38,7 @@ class SwirlPageRoute extends PageRouteBuilder {
               builder: (context, child) {
                 final bool isUnder = (animation.value > 0.5); 
                 final int direction = forward ? 1 : -1;
-                final double angle = animation.value * numHalfRotations * direction * pi; 
+                final double angle = animation.value * numberOfHalfRotations * direction * pi; 
                 Matrix4 transform =  
                   Matrix4.identity()
                     ..setEntry(3, 2, 0.001) 
@@ -56,8 +56,8 @@ class SwirlPageRoute extends PageRouteBuilder {
                   child: isUnder
                       ? Transform(
                           transform: axis == Axis.horizontal ?
-                          Matrix4.rotationX(numHalfRotations % 2 == 1 ? (pi * direction) : 0) :
-                          Matrix4.rotationY(numHalfRotations % 2 == 1 ? (pi * direction) : 0), 
+                          Matrix4.rotationX(numberOfHalfRotations % 2 == 1 ? (pi * direction) : 0) :
+                          Matrix4.rotationY(numberOfHalfRotations % 2 == 1 ? (pi * direction) : 0), 
                           alignment: Alignment.center,
                           child: child,
                         )

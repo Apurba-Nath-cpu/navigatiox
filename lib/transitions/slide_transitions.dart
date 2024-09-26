@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
 
 /// A custom [PageRoute] that slides the page in from the specified [direction].
-/// 
+///
 /// This [PageRoute] implementation provides a sliding animation when transitioning
 /// between pages. The [page] parameter specifies the widget to be displayed,
 /// and the [direction] parameter determines the direction of the slide animation.
 /// The [animationDuration] parameter specifies the duration of the animation.
 class SlidePageRoute extends PageRouteBuilder {
-  final Widget page;
+  final Widget nextPage;
+  final Widget currentPage;
   final AxisDirection direction;
   final Duration animationDuration;
 
   SlidePageRoute(
-      {required this.page,
+      {required this.nextPage,
+      required this.currentPage,
       this.direction = AxisDirection.left,
       this.animationDuration = const Duration(milliseconds: 500)})
       : super(
-          pageBuilder: (context, animation, secondaryAnimation) => page,
+          pageBuilder: (context, animation, secondaryAnimation) => nextPage,
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             final Offset initialOffset;
             if (direction == AxisDirection.left) {

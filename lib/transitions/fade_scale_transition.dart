@@ -6,21 +6,24 @@ import 'package:flutter/material.dart';
 /// The [initialScale] parameter controls the starting scale of the page, and the [animationDuration]
 /// parameter controls the duration of the transition animation.
 class FadeScalePageRoute extends PageRouteBuilder {
-  final Widget page;
+  final Widget nextPage;
+  final Widget currentPage;
   final double initialScale;
   final Duration animationDuration;
 
   FadeScalePageRoute(
-      {required this.page,
+      {required this.nextPage,
+      required this.currentPage,
       this.initialScale = 0.0,
       this.animationDuration = const Duration(milliseconds: 500)})
       : super(
-          pageBuilder: (context, animation, secondaryAnimation) => page,
+          pageBuilder: (context, animation, secondaryAnimation) => nextPage,
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return FadeTransition(
               opacity: animation,
               child: ScaleTransition(
-                scale: Tween<double>(begin: initialScale.abs(), end: 1.0).animate(animation),
+                scale: Tween<double>(begin: initialScale.abs(), end: 1.0)
+                    .animate(animation),
                 child: child,
               ),
             );
