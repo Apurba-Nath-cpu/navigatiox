@@ -1,7 +1,8 @@
 import 'package:example/second_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:navigatiox/custom_navigator.dart';
-import 'package:navigatiox/utils/corner_type.dart';
+import 'package:navigatiox/utils/animation_types.dart';
+import 'package:navigatiox/utils/corner_types.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -16,83 +17,99 @@ class HomeScreen extends StatelessWidget {
           children: [
             ElevatedButton(
               onPressed: () {
-                CustomNavigator.pushSwirl(
-                  context: context,
-                  nextPage: const SecondScreen(),
-                  duration: const Duration(milliseconds: 500),
-                  numHalfRotations: 2,
-                  forward: true,
-                  axis: Axis.horizontal,
+                CustomNavigator.push(
+                  SwirlAnimation(
+                    context: context,
+                    nextPage: const SecondScreen(),
+                    duration: const Duration(milliseconds: 500),
+                    numberOfHalfRotations: 2,
+                    forward: true,
+                    axis: Axis.horizontal,
+                  ),
                 );
               },
               child: const Text('Swirl Transition'),
             ),
             ElevatedButton(
               onPressed: () {
-                CustomNavigator.pushSlide(
-                  context: context,
-                  nextPage: const SecondScreen(),
-                  direction: AxisDirection.down,
+                CustomNavigator.push(
+                  SlideAnimation(
+                    context: context,
+                    nextPage: const SecondScreen(),
+                    duration: const Duration(milliseconds: 500),
+                    direction: AxisDirection.left,
+                  ),
                 );
               },
               child: const Text('Slide Transition'),
             ),
             ElevatedButton(
               onPressed: () {
-                CustomNavigator.pushFadeScale(
-                  context: context,
-                  nextPage: const SecondScreen(),
-                  duration: const Duration(milliseconds: 500),
+                CustomNavigator.push(
+                  FadeScaleAnimation(
+                    context: context,
+                    nextPage: const SecondScreen(),
+                    duration: const Duration(milliseconds: 500),
+                    initialScale: 0.0,
+                  ),
                 );
               },
               child: const Text('Fade & Scale Transition'),
             ),
             ElevatedButton(
               onPressed: () {
-                CustomNavigator.pushCorner(
-                  context: context,
-                  nextPage: const SecondScreen(),
-                  duration: const Duration(milliseconds: 500),
-                  corner: Corner.bottomLeft,
+                CustomNavigator.push(
+                  CornerAnimation(
+                    context: context,
+                    nextPage: const SecondScreen(),
+                    duration: const Duration(milliseconds: 500),
+                    corner: Corner.bottomLeft,
+                  ),
                 );
               },
               child: const Text('Corner Transition'),
             ),
             ElevatedButton(
               onPressed: () {
-                CustomNavigator.pushRotate(
-                  context: context,
-                  nextPage: const SecondScreen(),
-                  duration: const Duration(milliseconds: 500),
-                  clockwise: true,
-                  numberOfTurns: 1,
+                CustomNavigator.push(
+                  RotateAnimation(
+                    context: context,
+                    nextPage: const SecondScreen(),
+                    duration: const Duration(milliseconds: 500),
+                    numberOfRotations: 1,
+                    clockwise: true,
+                  ),
                 );
               },
               child: const Text('Rotate Transition'),
             ),
             ElevatedButton(
               onPressed: () {
-                CustomNavigator.pushFlip(
-                  context: context,
-                  nextPage: const SecondScreen(),
-                  duration: const Duration(milliseconds: 500),
-                  axis: AxisDirection.left,
-                  fadeIn: true,
-                  forward: false,
+                CustomNavigator.push(
+                  FlipAnimation(
+                    context: context,
+                    nextPage: const SecondScreen(),
+                    duration: const Duration(milliseconds: 500),
+                    axis: AxisDirection.left,
+                    fadeIn: true,
+                    forward: false,
+                  ),
                 );
               },
               child: const Text('Flip Transition'),
             ),
             ElevatedButton(
               onPressed: () {
-                CustomNavigator.pushFlyin(
-                  context: context,
-                  nextPage: const SecondScreen(),
-                  duration: const Duration(milliseconds: 500),
-                  axis: AxisDirection.up,
-                  inclination: AxisDirection.left,
-                  fadeIn: true,
-                  forward: true,
+                CustomNavigator.push(
+                  FlyInAnimation(
+                    context: context,
+                    nextPage: const SecondScreen(),
+                    duration: const Duration(milliseconds: 500),
+                    axis: AxisDirection.left,
+                    inclination: AxisDirection.up,
+                    fadeIn: true,
+                    forward: false,
+                  ),
                 );
               },
               child: const Text('FlyIn Transition'),

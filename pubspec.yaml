@@ -1,6 +1,6 @@
 name: navigatiox
-description: "Navigatiox is a powerful Flutter package designed to enhance your app's navigation experience with smooth, animated transitions. This versatile library offers a wide range of customizable animations for seamless screen transitions, making your app feel more dynamic and engaging. With Navigatiox, developers can easily implement professional-grade navigation effects without the need for complex custom animations. Unlock the potential of animated navigation in your Flutter projects with Navigatiox."
-version: 0.0.2
+description: "Navigatiox is a versatile library that offers a wide range of customizable animations for seamless screen transitions, for more dynamic and engaging page navigation."
+version: 0.0.3
 repository: https://github.com/Apurba-Nath-cpu/navigatiox
 
 environment:

@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:navigatiox/transitions/fade_scale_transition.dart';
 import 'package:navigatiox/transitions/flip_transition.dart';
 import 'package:navigatiox/transitions/fly_in_transition.dart';
+import 'package:navigatiox/transitions/split_transition.dart';
 import 'package:navigatiox/transitions/swirl_transition.dart';
-import 'package:navigatiox/transitions/parallax_transitions.dart';
+import 'package:navigatiox/transitions/slide_transitions.dart';
 import 'package:navigatiox/transitions/rotate_transition.dart';
-import 'package:navigatiox/transitions/zoom_transition.dart';
-import 'package:navigatiox/utils/corner_type.dart';
+import 'package:navigatiox/transitions/corner_transition.dart';
+import 'package:navigatiox/utils/animation_types.dart';
+import 'package:navigatiox/utils/corner_types.dart';
 
 /// A utility class that provides static methods for navigating between pages with custom transitions.
 /// This class is used to encapsulate the logic for pushing pages with various transition animations,
@@ -35,7 +37,7 @@ class CustomNavigator {
         nextPage: nextPage,
         currentPage: context.widget,
         animationDuration: duration,
-        numHalfRotations: numHalfRotations,
+        numberOfHalfRotations: numHalfRotations,
         forward: forward,
         axis: axis,
       ),
@@ -58,7 +60,8 @@ class CustomNavigator {
     Navigator.push(
       context,
       SlidePageRoute(
-        page: nextPage,
+        nextPage: nextPage,
+        currentPage: context.widget,
         animationDuration: duration,
         direction: direction,
       ),
@@ -81,7 +84,8 @@ class CustomNavigator {
     Navigator.push(
       context,
       FadeScalePageRoute(
-        page: nextPage,
+        nextPage: nextPage,
+        currentPage: context.widget,
         animationDuration: duration,
         initialScale: initialScale,
       ),
@@ -104,7 +108,8 @@ class CustomNavigator {
     Navigator.push(
       context,
       CornerPageRoute(
-        page: nextPage,
+        nextPage: nextPage,
+        currentPage: context.widget,
         animationDuration: duration,
         corner: corner,
       ),
@@ -132,7 +137,7 @@ class CustomNavigator {
         nextPage: nextPage,
         currentPage: context.widget,
         animationDuration: duration,
-        numberOfTurns: numberOfTurns,
+        numberOfRotations: numberOfTurns,
         clockwise: clockwise,
       ),
     );
@@ -199,5 +204,300 @@ class CustomNavigator {
         forward: forward,
       ),
     );
+  }
+
+  static void push(ParentAnimation animation) {
+    switch (animation) {
+      case FadeScaleAnimation anim:
+        Navigator.push(
+          anim.context,
+          FadeScalePageRoute(
+            nextPage: anim.nextPage,
+            currentPage: anim.context.widget,
+            initialScale: anim.initialScale,
+            animationDuration: anim.duration,
+          ),
+        );
+        break;
+
+      case FlipAnimation anim:
+        Navigator.push(
+          anim.context,
+          FlipPageRoute(
+            nextPage: anim.nextPage,
+            currentPage: anim.context.widget,
+            animationDuration: anim.duration,
+            axis: anim.axis,
+            fadeIn: anim.fadeIn,
+            forward: anim.forward,
+          ),
+        );
+        break;
+
+      case FlyInAnimation anim:
+        Navigator.push(
+          anim.context,
+          FlyInPageRoute(
+            nextPage: animation.nextPage,
+            currentPage: animation.context.widget,
+            animationDuration: animation.duration,
+            axis: anim.axis,
+            inclination: anim.inclination,
+            fadeIn: anim.fadeIn,
+            forward: anim.forward,
+          ),
+        );
+        break;
+
+      case SlideAnimation anim:
+        Navigator.push(
+          anim.context,
+          SlidePageRoute(
+            nextPage: anim.nextPage,
+            currentPage: anim.context.widget,
+            animationDuration: anim.duration,
+            direction: anim.direction,
+          ),
+        );
+        break;
+
+      case RotateAnimation anim:
+        Navigator.push(
+          anim.context,
+          RotatePageRoute(
+            nextPage: anim.nextPage,
+            currentPage: anim.context.widget,
+            animationDuration: anim.duration,
+            numberOfRotations: anim.numberOfRotations,
+            clockwise: anim.clockwise,
+          ),
+        );
+        break;
+
+      case SwirlAnimation anim:
+        Navigator.push(
+          anim.context,
+          SwirlPageRoute(
+            nextPage: anim.nextPage,
+            currentPage: anim.context.widget,
+            animationDuration: anim.duration,
+            numberOfHalfRotations: anim.numberOfHalfRotations,
+            forward: anim.forward,
+            axis: anim.axis,
+          ),
+        );
+        break;
+
+      case CornerAnimation anim:
+        Navigator.push(
+          anim.context,
+          CornerPageRoute(
+            nextPage: anim.nextPage,
+            currentPage: anim.context.widget,
+            animationDuration: anim.duration,
+            corner: anim.corner,
+          ),
+        );
+        break;
+    }
+  }
+  
+  static void pushReplacement(ParentAnimation animation) {
+    switch (animation) {
+      case FadeScaleAnimation anim:
+        Navigator.pushReplacement(
+          anim.context,
+          FadeScalePageRoute(
+            nextPage: anim.nextPage,
+            currentPage: anim.context.widget,
+            initialScale: anim.initialScale,
+            animationDuration: anim.duration,
+          ),
+        );
+        break;
+
+      case FlipAnimation anim:
+        Navigator.pushReplacement(
+          anim.context,
+          FlipPageRoute(
+            nextPage: anim.nextPage,
+            currentPage: anim.context.widget,
+            animationDuration: anim.duration,
+            axis: anim.axis,
+            fadeIn: anim.fadeIn,
+            forward: anim.forward,
+          ),
+        );
+        break;
+
+      case FlyInAnimation anim:
+        Navigator.pushReplacement(
+          anim.context,
+          FlyInPageRoute(
+            nextPage: animation.nextPage,
+            currentPage: animation.context.widget,
+            animationDuration: animation.duration,
+            axis: anim.axis,
+            inclination: anim.inclination,
+            fadeIn: anim.fadeIn,
+            forward: anim.forward,
+          ),
+        );
+        break;
+
+      case SlideAnimation anim:
+        Navigator.pushReplacement(
+          anim.context,
+          SlidePageRoute(
+            nextPage: anim.nextPage,
+            currentPage: anim.context.widget,
+            animationDuration: anim.duration,
+            direction: anim.direction,
+          ),
+        );
+        break;
+
+      case RotateAnimation anim:
+        Navigator.pushReplacement(
+          anim.context,
+          RotatePageRoute(
+            nextPage: anim.nextPage,
+            currentPage: anim.context.widget,
+            animationDuration: anim.duration,
+            numberOfRotations: anim.numberOfRotations,
+            clockwise: anim.clockwise,
+          ),
+        );
+        break;
+
+      case SwirlAnimation anim:
+        Navigator.pushReplacement(
+          anim.context,
+          SwirlPageRoute(
+            nextPage: anim.nextPage,
+            currentPage: anim.context.widget,
+            animationDuration: anim.duration,
+            numberOfHalfRotations: anim.numberOfHalfRotations,
+            forward: anim.forward,
+            axis: anim.axis,
+          ),
+        );
+        break;
+
+      case CornerAnimation anim:
+        Navigator.pushReplacement(
+          anim.context,
+          CornerPageRoute(
+            nextPage: anim.nextPage,
+            currentPage: anim.context.widget,
+            animationDuration: anim.duration,
+            corner: anim.corner,
+          ),
+        );
+        break;
+    }
+  }
+
+  static void pushAndRemoveUntil(ParentAnimation animation, bool Function(Route<dynamic>) predicate) {
+    switch (animation) {
+      case FadeScaleAnimation anim:
+        Navigator.pushAndRemoveUntil(
+          anim.context,
+          FadeScalePageRoute(
+            nextPage: anim.nextPage,
+            currentPage: anim.context.widget,
+            initialScale: anim.initialScale,
+            animationDuration: anim.duration,
+          ),
+          predicate,
+        );
+        break;
+
+      case FlipAnimation anim:
+        Navigator.pushAndRemoveUntil(
+          anim.context,
+          FlipPageRoute(
+            nextPage: anim.nextPage,
+            currentPage: anim.context.widget,
+            animationDuration: anim.duration,
+            axis: anim.axis,
+            fadeIn: anim.fadeIn,
+            forward: anim.forward,
+          ),
+          predicate,
+        );
+        break;
+
+      case FlyInAnimation anim:
+        Navigator.pushAndRemoveUntil(
+          anim.context,
+          FlyInPageRoute(
+            nextPage: animation.nextPage,
+            currentPage: animation.context.widget,
+            animationDuration: animation.duration,
+            axis: anim.axis,
+            inclination: anim.inclination,
+            fadeIn: anim.fadeIn,
+            forward: anim.forward,
+          ),
+          predicate,
+        );
+        break;
+
+      case SlideAnimation anim:
+        Navigator.pushAndRemoveUntil(
+          anim.context,
+          SlidePageRoute(
+            nextPage: anim.nextPage,
+            currentPage: anim.context.widget,
+            animationDuration: anim.duration,
+            direction: anim.direction,
+          ),
+          predicate,
+        );
+        break;
+
+      case RotateAnimation anim:
+        Navigator.pushAndRemoveUntil(
+          anim.context,
+          RotatePageRoute(
+            nextPage: anim.nextPage,
+            currentPage: anim.context.widget,
+            animationDuration: anim.duration,
+            numberOfRotations: anim.numberOfRotations,
+            clockwise: anim.clockwise,
+          ),
+          predicate,
+        );
+        break;
+
+      case SwirlAnimation anim:
+        Navigator.pushAndRemoveUntil(
+          anim.context,
+          SwirlPageRoute(
+            nextPage: anim.nextPage,
+            currentPage: anim.context.widget,
+            animationDuration: anim.duration,
+            numberOfHalfRotations: anim.numberOfHalfRotations,
+            forward: anim.forward,
+            axis: anim.axis,
+          ),
+          predicate,
+        );
+        break;
+
+      case CornerAnimation anim:
+        Navigator.pushAndRemoveUntil(
+          anim.context,
+          CornerPageRoute(
+            nextPage: anim.nextPage,
+            currentPage: anim.context.widget,
+            animationDuration: anim.duration,
+            corner: anim.corner,
+          ),
+          predicate,
+        );
+        break;
+    }
   }
 }
