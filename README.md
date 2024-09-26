@@ -16,7 +16,7 @@ To use this package, add it to your `pubspec.yaml` file:
 dependencies:
   flutter:
     sdk: flutter
-  navigatiox: ^0.1.0 # Replace with the latest version
+  navigatiox: ^0.0.3 # Replace with the latest version
 ```
 
 Then, run the following command to install the package:
@@ -34,13 +34,21 @@ import 'package:navigatiox/navigatiox.dart';
 Here's how to use the Rotate animation for page navigation:
 
 ```dart
-CustomNavigator.pushRotate(
-  context: context,
-  nextPage: const SecondScreen(),
-  duration: const Duration(milliseconds: 500),
-  clockwise: true,
-  numberOfTurns: 1,
-);
+ElevatedButton(
+  onPressed: () {
+    CustomNavigator.push(
+      FlipAnimation(
+        context: context,
+        nextPage: const SecondScreen(),
+        duration: const Duration(milliseconds: 500),
+        axis: AxisDirection.left,
+        fadeIn: true,
+        forward: false,
+      ),
+    );
+  },
+  child: const Text('Flip Transition'),
+)
 ```
 
 ## Contributing

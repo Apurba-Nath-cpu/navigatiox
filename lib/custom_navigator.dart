@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:navigatiox/transitions/fade_scale_transition.dart';
 import 'package:navigatiox/transitions/flip_transition.dart';
 import 'package:navigatiox/transitions/fly_in_transition.dart';
-import 'package:navigatiox/transitions/split_transition.dart';
 import 'package:navigatiox/transitions/swirl_transition.dart';
 import 'package:navigatiox/transitions/slide_transitions.dart';
 import 'package:navigatiox/transitions/rotate_transition.dart';
