@@ -300,7 +300,7 @@ class CustomNavigator {
         break;
     }
   }
-  
+
   static void pushReplacement(ParentAnimation animation) {
     switch (animation) {
       case FadeScaleAnimation anim:
@@ -397,7 +397,8 @@ class CustomNavigator {
     }
   }
 
-  static void pushAndRemoveUntil(ParentAnimation animation, bool Function(Route<dynamic>) predicate) {
+  static void pushAndRemoveUntil(
+      ParentAnimation animation, bool Function(Route<dynamic>) predicate) {
     switch (animation) {
       case FadeScaleAnimation anim:
         Navigator.pushAndRemoveUntil(

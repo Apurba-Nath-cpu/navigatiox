@@ -38,11 +38,11 @@ class SwirlPageRoute extends PageRouteBuilder {
               builder: (context, child) {
                 final bool isUnder = (animation.value > 0.5);
                 final int direction = forward ? 1 : -1;
-                final double angle = animation.value * numberOfHalfRotations * direction * pi; 
-                Matrix4 transform =  
-                  Matrix4.identity()
-                    ..setEntry(3, 2, 0.001) 
-                    ..rotateY(angle); 
+                final double angle =
+                    animation.value * numberOfHalfRotations * direction * pi;
+                Matrix4 transform = Matrix4.identity()
+                  ..setEntry(3, 2, 0.001)
+                  ..rotateY(angle);
 
                 if (axis == Axis.horizontal) {
                   transform = Matrix4.identity()
@@ -55,9 +55,13 @@ class SwirlPageRoute extends PageRouteBuilder {
                   alignment: Alignment.center,
                   child: isUnder
                       ? Transform(
-                          transform: axis == Axis.horizontal ?
-                          Matrix4.rotationX(numberOfHalfRotations % 2 == 1 ? (pi * direction) : 0) :
-                          Matrix4.rotationY(numberOfHalfRotations % 2 == 1 ? (pi * direction) : 0), 
+                          transform: axis == Axis.horizontal
+                              ? Matrix4.rotationX(numberOfHalfRotations % 2 == 1
+                                  ? (pi * direction)
+                                  : 0)
+                              : Matrix4.rotationY(numberOfHalfRotations % 2 == 1
+                                  ? (pi * direction)
+                                  : 0),
                           alignment: Alignment.center,
                           child: child,
                         )
