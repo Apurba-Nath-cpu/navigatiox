@@ -6,6 +6,6 @@
 ### Added
 - Added license, better decription.
 
-## [0.0.3] - 2024-09-26
+## [0.0.3] - 2024-10-05
 ### Added
 - Added pushReplacement, pushAndRemoveUntil, updated decription.
