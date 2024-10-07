@@ -9,3 +9,7 @@
 ## [0.0.3] - 2024-10-05
 ### Added
 - Added pushReplacement, pushAndRemoveUntil, updated decription.
+
+## [0.0.4] - 2024-10-07
+### Added
+- Added license, better documentation.

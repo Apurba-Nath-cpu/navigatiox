@@ -1,11 +1,19 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 
-/// A [PageRouteBuilder] that provides a "fly in" transition animation for page navigation.
-///
+/// A [PageRouteBuilder] that provides a "fly-in" transition animation for page navigation.
+/// 
 /// The [FlyInPageRoute] class is used to create a page route that transitions the next page
-/// into view with a "fly in" animation. The animation can be configured to use different
+/// into view with a "fly-in" animation. The animation can be configured to use different
 /// axis directions and inclinations, as well as whether to fade in the next page.
+/// The [currentPage] parameter is the widget that is currently displayed on the screen.
+/// The [nextPage] parameter is the widget that will be displayed on the new page.
+/// The [animationDuration] parameter specifies the duration of the animation, with a default of 500 milliseconds.
+/// The [axis] parameter specifies the axis along which the fly-in animation should occur, with a default of [AxisDirection.left].
+/// The [inclination] parameter specifies the axis along which the fly-in animation should be inclined, with a default of [AxisDirection.up].
+/// The [fadeIn] parameter determines whether the next page should fade in or not, with a default of `true`.
+/// The [forward] parameter determines whether the fly-in animation should go from front to back (`true`) or back to front (`false`), with a default of `false`.
+/// This method uses the [FlyInPageRoute] class to create the custom transition animation.
 class FlyInPageRoute extends PageRouteBuilder {
   final Widget nextPage;
   final Widget currentPage;

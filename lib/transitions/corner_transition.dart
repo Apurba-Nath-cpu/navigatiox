@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:navigatiox/utils/corner_types.dart';
 
-/// A custom PageRouteBuilder that creates a zoom transition animation when navigating to a new page.
-///
-/// The [page] parameter is the widget to be displayed on the new page.
-/// The [corner] parameter specifies the corner of the screen where the transition should start from, with a default of [Corner.bottomLeft].
-/// The [animationDuration] parameter specifies the duration of the transition animation, with a default of 500 milliseconds.
+/// A custom [PageRoute] that slides the page in from the specified [corner].
+/// This [CornerPageRoute] class implementation provides a "sliding from corner" animation when transitioning.
+/// The [currentPage] parameter is the widget that is currently displayed on the screen.
+/// The [nextPage] parameter is the widget that will be displayed on the new page.
+/// The [corner] parameter specifies the corner of the screen where the new page will appear, with a default of `Corner.bottomLeft`.
+/// The [animationDuration] parameter specifies the duration of the animation, with a default of 500 milliseconds.
+/// This class uses the [PageRouteBuilder] class to create the custom transition animation.
 class CornerPageRoute extends PageRouteBuilder {
   final Widget nextPage;
   final Widget currentPage;

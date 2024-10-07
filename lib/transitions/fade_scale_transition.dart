@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
-/// A [PageRouteBuilder] that creates a fade and scale transition for a page.
-///
-/// This transition fades the page in while also scaling it from a small initial size to its full size.
-/// The [initialScale] parameter controls the starting scale of the page, and the [animationDuration]
-/// parameter controls the duration of the transition animation.
+/// A [PageRouteBuilder] that provides a "fade and scale" transition animation for page navigation.
+/// The [FadeScalePageRoute] class is used to create a page route that transitions the next page
+/// into view with a "fade and scale" animation. The animation can be configured to use different
+/// axis directions and inclinations, as well as whether to fade in the next page.
+/// The [currentPage] parameter is the widget that is currently displayed on the screen.
+/// The [nextPage] parameter is the widget that will be displayed on the new page.
+/// The [initialScale] parameter specifies the initial scale of the page being pushed, with a default of 0.0.
+/// The [animationDuration] parameter specifies the duration of the animation, with a default of 500 milliseconds.
 class FadeScalePageRoute extends PageRouteBuilder {
   final Widget nextPage;
   final Widget currentPage;

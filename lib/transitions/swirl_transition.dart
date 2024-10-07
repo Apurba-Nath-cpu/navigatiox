@@ -2,18 +2,17 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-/// A custom page route that creates a swirling animation when transitioning between pages.
-///
-/// This page route takes two widgets, [nextPage] and [currentPage], and transitions between them
-/// using a swirling animation. The animation can be configured with the [numHalfRotations],
-/// [forward], [axis], and [animationDuration] parameters.
-///
-/// The [numHalfRotations] parameter determines the number of half rotations the animation will
-/// perform. The [forward] parameter determines the direction of the animation (true for forward,
-/// false for reverse). The [axis] parameter determines the axis of rotation (vertical or
-/// horizontal). The [animationDuration] parameter determines the duration of the animation.
-///
-/// This page route can be used in a [Navigator] to create a custom transition between pages.
+/// A [PageRouteBuilder] that provides a "swirl" transition animation for page navigation.
+/// The [SwirlPageRoute] class is used to create a page route that transitions the next page
+/// into view with a "swirl" animation. The animation can be configured to use different
+/// axis directions and inclinations, as well as whether to fade in the next page.
+/// The [currentPage] parameter is the widget that is currently displayed on the screen.
+/// The [nextPage] parameter is the widget that will be displayed on the new page.
+/// The [animationDuration] parameter specifies the duration of the animation, with a default of 500 milliseconds.
+/// The [numberOfHalfRotations] parameter specifies the number of half rotations to apply, with a default of 1.
+/// The [forward] parameter determines whether the swirl animation should go from front to back (`true`) or back to front (`false`), with a default of `true`.
+/// The [axis] parameter specifies the axis along which the swirl animation should occur, with a default of [Axis.vertical].
+/// This method uses the [SwirlPageRoute] class to create the custom transition animation.
 class SwirlPageRoute extends PageRouteBuilder {
   final Widget nextPage;
   final Widget currentPage;

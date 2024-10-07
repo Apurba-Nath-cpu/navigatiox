@@ -2,20 +2,18 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-/// A custom PageRoute that implements a flip transition animation.
-///
-/// This PageRoute is used to transition between pages in a Flutter application,
-/// with a flip animation effect. The animation can be configured to flip
-/// horizontally or vertically, and to fade in the new page.
-///
-/// The [nextPage] and [currentPage] parameters are the widgets to be displayed
-/// during the transition. The [animationDuration] parameter controls the
-/// duration of the animation, and the [axis] parameter controls the direction
-/// of the flip (left, right, up, or down).
-///
-/// The [fadeIn] parameter determines whether the new page should fade in during
-/// the transition, and the [forward] parameter controls the direction of the
-/// flip (forward or reverse).
+/// A [PageRouteBuilder] that provides a "flip" transition animation for page navigation.
+/// 
+/// The [FlipPageRoute] class is used to create a page route that transitions the next page
+/// into view with a "flip" animation. The animation can be configured to use different
+/// axis directions and inclinations, as well as whether to fade in the next page.
+/// The [currentPage] parameter is the widget that is currently displayed on the screen.
+/// The [nextPage] parameter is the widget that will be displayed on the new page.
+/// The [animationDuration] parameter specifies the duration of the animation, with a default of 500 milliseconds.
+/// The [axis] parameter specifies the axis along which the flip animation should occur, with a default of [AxisDirection.left].
+/// The [fadeIn] parameter determines whether the next page should fade in or not, with a default of `true`.
+/// The [forward] parameter determines whether the flip animation should go from front to back (`true`) or back to front (`false`), with a default of `false`.
+/// This method uses the [FlipPageRoute] class to create the custom transition animation.
 class FlipPageRoute extends PageRouteBuilder {
   final Widget nextPage;
   final Widget currentPage;

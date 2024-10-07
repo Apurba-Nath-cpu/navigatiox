@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:navigatiox/utils/corner_types.dart';
 
+// ParentAnimation class defining the common properties of all animations (duration of animation, buildContext, and next page Widget)
 abstract class ParentAnimation {
   final Duration duration;
   final BuildContext context;
@@ -12,6 +13,7 @@ abstract class ParentAnimation {
       this.duration = const Duration(milliseconds: 500)});
 }
 
+// FadeScaleAnimation class implementing ParentAnimation with FadeScale Transition
 class FadeScaleAnimation extends ParentAnimation {
   final double initialScale;
   const FadeScaleAnimation(
@@ -21,7 +23,7 @@ class FadeScaleAnimation extends ParentAnimation {
       this.initialScale = 0.0});
 }
 
-// FlipAnimation class implementing ParentAnimation
+// FlipAnimation class implementing ParentAnimation with Flip Transition
 class FlipAnimation extends ParentAnimation {
   final AxisDirection axis;
   final bool fadeIn;
@@ -36,7 +38,7 @@ class FlipAnimation extends ParentAnimation {
   });
 }
 
-// FlyInAnimation class implementing ParentAnimation
+// FlyInAnimation class implementing ParentAnimation with FlyIn Transition
 class FlyInAnimation extends ParentAnimation {
   final AxisDirection axis;
   final AxisDirection inclination;
@@ -53,6 +55,7 @@ class FlyInAnimation extends ParentAnimation {
   });
 }
 
+// SlideAnimation class implementing ParentAnimation with Slide Transition
 class SlideAnimation extends ParentAnimation {
   final AxisDirection direction;
   const SlideAnimation({
@@ -63,6 +66,7 @@ class SlideAnimation extends ParentAnimation {
   });
 }
 
+// RotateAnimation class implementing ParentAnimation with Rotate Transition
 class RotateAnimation extends ParentAnimation {
   final int numberOfRotations;
   final bool clockwise;
@@ -75,6 +79,7 @@ class RotateAnimation extends ParentAnimation {
   });
 }
 
+// SwirlAnimation class implementing ParentAnimation with Swirl Transition
 class SwirlAnimation extends ParentAnimation {
   final int numberOfHalfRotations;
   final bool forward;
@@ -89,6 +94,7 @@ class SwirlAnimation extends ParentAnimation {
   });
 }
 
+// CornerAnimation class implementing ParentAnimation with Corner Transition
 class CornerAnimation extends ParentAnimation {
   final Corner corner;
   const CornerAnimation({
