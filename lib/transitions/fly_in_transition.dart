@@ -2,7 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 /// A [PageRouteBuilder] that provides a "fly-in" transition animation for page navigation.
-/// 
+///
 /// The [FlyInPageRoute] class is used to create a page route that transitions the next page
 /// into view with a "fly-in" animation. The animation can be configured to use different
 /// axis directions and inclinations, as well as whether to fade in the next page.

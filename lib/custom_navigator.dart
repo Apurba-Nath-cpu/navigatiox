@@ -44,7 +44,7 @@ class CustomNavigator {
   }
 
   /// Pushes a new page onto the navigation stack with a slide transition animation.
-  /// The [context] parameter is the context of the current page.  
+  /// The [context] parameter is the context of the current page.
   /// The [nextPage] parameter is the widget that will be displayed on the new page.
   /// The [direction] parameter specifies the direction of the slide animation, with a default of `AxisDirection.left`.
   /// The [duration] parameter specifies the duration of the animation, with a default of 500 milliseconds.
@@ -205,20 +205,19 @@ class CustomNavigator {
     );
   }
 
-/// Constructs a [Navigator] object that pushes a new page onto the navigation stack with a custom transition animation.
-/// The [animation] parameter is an instance of a [ParentAnimation] class that defines the animation to be used.
-/// The [animation] parameter can be any of the following types:
-/// - [FadeScaleAnimation]
-/// - [FlipAnimation]
-/// - [FlyInAnimation]
-/// - [SlideAnimation]
-/// - [RotateAnimation]
-/// - [SwirlAnimation]
-/// - [CornerAnimation]
+  /// Constructs a [Navigator] object that pushes a new page onto the navigation stack with a custom transition animation.
+  /// The [animation] parameter is an instance of a [ParentAnimation] class that defines the animation to be used.
+  /// The [animation] parameter can be any of the following types:
+  /// - [FadeScaleAnimation]
+  /// - [FlipAnimation]
+  /// - [FlyInAnimation]
+  /// - [SlideAnimation]
+  /// - [RotateAnimation]
+  /// - [SwirlAnimation]
+  /// - [CornerAnimation]
 
   static void push(ParentAnimation animation) {
     switch (animation) {
-
       // - [FadeScaleAnimation]
       case FadeScaleAnimation anim:
         Navigator.push(
@@ -320,16 +319,16 @@ class CustomNavigator {
     }
   }
 
-/// Constructs a [Navigator] object that pushes a new page onto the navigation stack with a custom transition animation and replaces the current page.
-/// The [animation] parameter is an instance of a [ParentAnimation] class that defines the animation to be used.
-/// The [animation] parameter can be any of the following types:
-/// - [FadeScaleAnimation]
-/// - [FlipAnimation]
-/// - [FlyInAnimation]
-/// - [SlideAnimation]
-/// - [RotateAnimation]
-/// - [SwirlAnimation]
-/// - [CornerAnimation]
+  /// Constructs a [Navigator] object that pushes a new page onto the navigation stack with a custom transition animation and replaces the current page.
+  /// The [animation] parameter is an instance of a [ParentAnimation] class that defines the animation to be used.
+  /// The [animation] parameter can be any of the following types:
+  /// - [FadeScaleAnimation]
+  /// - [FlipAnimation]
+  /// - [FlyInAnimation]
+  /// - [SlideAnimation]
+  /// - [RotateAnimation]
+  /// - [SwirlAnimation]
+  /// - [CornerAnimation]
 
   static void pushReplacement(ParentAnimation animation) {
     switch (animation) {
@@ -434,21 +433,20 @@ class CustomNavigator {
     }
   }
 
-/// Constructs a [Navigator] object that pushes a new page onto the navigation stack with a custom transition animation and removes all pages from the navigation stack until the predicate returns true.
-/// The [animation] parameter is an instance of a [ParentAnimation] class that defines the animation to be used.
-/// The [animation] parameter can be any of the following types:
-/// - [FadeScaleAnimation]
-/// - [FlipAnimation]
-/// - [FlyInAnimation]
-/// - [SlideAnimation]
-/// - [RotateAnimation]
-/// - [SwirlAnimation]
-/// - [CornerAnimation]
+  /// Constructs a [Navigator] object that pushes a new page onto the navigation stack with a custom transition animation and removes all pages from the navigation stack until the predicate returns true.
+  /// The [animation] parameter is an instance of a [ParentAnimation] class that defines the animation to be used.
+  /// The [animation] parameter can be any of the following types:
+  /// - [FadeScaleAnimation]
+  /// - [FlipAnimation]
+  /// - [FlyInAnimation]
+  /// - [SlideAnimation]
+  /// - [RotateAnimation]
+  /// - [SwirlAnimation]
+  /// - [CornerAnimation]
 
   static void pushAndRemoveUntil(
       ParentAnimation animation, bool Function(Route<dynamic>) predicate) {
     switch (animation) {
-
       // - [FadeScaleAnimation]
       case FadeScaleAnimation anim:
         Navigator.pushAndRemoveUntil(
