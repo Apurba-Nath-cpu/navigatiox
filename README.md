@@ -16,7 +16,7 @@ To use this package, add it to your `pubspec.yaml` file:
 dependencies:
   flutter:
     sdk: flutter
-  navigatiox: ^0.0.3 # Replace with the latest version
+  navigatiox: ^0.0.4 # Replace with the latest version
 ```
 
 Then, run the following command to install the package:
